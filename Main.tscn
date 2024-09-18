@@ -1,0 +1,163 @@
+[gd_scene load_steps=12 format=3 uid="uid://cn4d02w2l8ugi"]
+
+[ext_resource type="Script" path="res://components/StyleTexture.gd" id="1_3wkdw"]
+[ext_resource type="Script" path="res://Main.gd" id="1_qo10m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk5bj"]
+size = Vector2(1280, 40)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3seb"]
+bg_color = Color(0.930532, 0.358142, 0.622403, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_fi27d"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_3wkdw")
+stylebox = SubResource("StyleBoxFlat_p3seb")
+width = 1280
+height = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0fvi"]
+size = Vector2(40, 1240)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sfh5"]
+bg_color = Color(0.287102, 0.677787, 0.565296, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_wst31"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_3wkdw")
+stylebox = SubResource("StyleBoxFlat_4sfh5")
+width = 40
+height = 1240
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6nny3"]
+radius = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsukf"]
+bg_color = Color(0.666491, 0.501646, 0.887446, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Texture2D" id="Texture2D_c1vwu"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_3wkdw")
+stylebox = SubResource("StyleBoxFlat_qsukf")
+width = 40
+height = 40
+
+[node name="Main" type="Node"]
+script = ExtResource("1_qo10m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(0, 648)
+
+[node name="Floor" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 612)
+shape = SubResource("RectangleShape2D_gk5bj")
+
+[node name="Sprite" type="Sprite2D" parent="Walls/Floor"]
+texture = SubResource("Texture2D_fi27d")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(20, -28)
+shape = SubResource("RectangleShape2D_o0fvi")
+
+[node name="Sprite" type="Sprite2D" parent="Walls/Left"]
+texture = SubResource("Texture2D_wst31")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1260, -28)
+shape = SubResource("RectangleShape2D_o0fvi")
+
+[node name="Sprite" type="Sprite2D" parent="Walls/Right"]
+texture = SubResource("Texture2D_wst31")
+
+[node name="Obstacles" type="StaticBody2D" parent="."]
+position = Vector2(56, 536)
+
+[node name="Obstacle1" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(724, 272)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle1"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Obstacle2" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(376, 328)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle2"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Obstacle3" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(200, 144)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle3"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Obstacle4" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(536, 176)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle4"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Obstacle5" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(880, 392)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle5"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Obstacle6" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(952, 120)
+shape = SubResource("CircleShape2D_6nny3")
+
+[node name="Sprite" type="Sprite2D" parent="Obstacles/Obstacle6"]
+texture = SubResource("Texture2D_c1vwu")
+
+[node name="Dolls" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="DollsBox" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 0.95
+anchor_bottom = 0.1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="DollsBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 54
+text = "DOLLS"
+horizontal_alignment = 1
+vertical_alignment = 1

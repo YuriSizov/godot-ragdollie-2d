@@ -1,0 +1,441 @@
+[gd_scene load_steps=17 format=3 uid="uid://cey5bsw2yxubo"]
+
+[ext_resource type="Script" path="res://Ragdoll.gd" id="1_b4o78"]
+[ext_resource type="Script" path="res://components/StyleTexture.gd" id="1_pann4"]
+
+[sub_resource type="SkeletonModification2DPhysicalBones" id="SkeletonModification2DPhysicalBones_v7hkk"]
+physical_bone_chain_length = 11
+fetch_bones = null
+joint_0_nodepath = NodePath("PBody")
+joint_1_nodepath = NodePath("PBody/PNeck")
+joint_2_nodepath = NodePath("PBody/PLeg_R")
+joint_3_nodepath = NodePath("PBody/PLeg_L")
+joint_4_nodepath = NodePath("PBody/PNeck/PArm_R")
+joint_5_nodepath = NodePath("PBody/PNeck/PArm_L")
+joint_6_nodepath = NodePath("PBody/PNeck/PHead")
+joint_7_nodepath = NodePath("PBody/PLeg_R/PFoot_R")
+joint_8_nodepath = NodePath("PBody/PLeg_L/PFoot_L")
+joint_9_nodepath = NodePath("PBody/PNeck/PArm_R/PHand_R")
+joint_10_nodepath = NodePath("PBody/PNeck/PArm_L/PHand_L")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_cr2as"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DPhysicalBones_v7hkk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glsna"]
+bg_color = Color(0.189178, 0.539469, 0.811517, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+
+[sub_resource type="Texture2D" id="Texture2D_743ov"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pann4")
+stylebox = SubResource("StyleBoxFlat_glsna")
+width = 80
+height = 44
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_531m3"]
+radius = 22.0001
+height = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8ghp"]
+bg_color = Color(0.875963, 0.531833, 0.613072, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Texture2D" id="Texture2D_5gdmc"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pann4")
+stylebox = SubResource("StyleBoxFlat_w8ghp")
+width = 72
+height = 20
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qsiu"]
+height = 72.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdn1p"]
+bg_color = Color(0.875963, 0.531833, 0.613072, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Texture2D" id="Texture2D_o4ik4"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pann4")
+stylebox = SubResource("StyleBoxFlat_hdn1p")
+width = 20
+height = 14
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_da675"]
+radius = 6.33166
+height = 17.8564
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75w8w"]
+bg_color = Color(0.831892, 0.600168, 0.203746, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 21
+corner_radius_top_right = 21
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="Texture2D" id="Texture2D_ctjku"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pann4")
+stylebox = SubResource("StyleBoxFlat_75w8w")
+width = 44
+height = 44
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4tb8r"]
+radius = 23.0
+height = 46.0
+
+[node name="Ragdoll" type="Node2D"]
+script = ExtResource("1_b4o78")
+
+[node name="Skeleton" type="Skeleton2D" parent="."]
+unique_name_in_owner = true
+modification_stack = SubResource("SkeletonModificationStack2D_cr2as")
+
+[node name="Body" type="Bone2D" parent="Skeleton"]
+unique_name_in_owner = true
+rest = Transform2D(6.27438e-06, 1, -1, 6.27438e-06, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Neck" type="Bone2D" parent="Skeleton/Body"]
+rest = Transform2D(1, 0, 0, 1, -89, -0.00055842)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Arm_R" type="Bone2D" parent="Skeleton/Body/Neck"]
+position = Vector2(-55.4254, 60.0008)
+rotation = 2.61798
+rest = Transform2D(0.866016, -0.500016, 0.500016, 0.866016, 4.00018, -27.9996)
+auto_calculate_length_and_angle = false
+length = 60.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Hand_R" type="Bone2D" parent="Skeleton/Body/Neck/Arm_R"]
+position = Vector2(64, 2.14577e-06)
+rest = Transform2D(1, -2.98023e-08, 2.98023e-08, 1, 64, 0)
+auto_calculate_length_and_angle = false
+length = 21.5
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Arm_L" type="Bone2D" parent="Skeleton/Body/Neck"]
+position = Vector2(-54.9996, -61.0004)
+rotation = -2.61799
+rest = Transform2D(0.866026, 0.499999, -0.499999, 0.866026, 3.99998, 28.0004)
+auto_calculate_length_and_angle = false
+length = 60.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Hand_L" type="Bone2D" parent="Skeleton/Body/Neck/Arm_L"]
+position = Vector2(64, -1.90735e-06)
+rest = Transform2D(1, 0, 0, 1, 64.1314, 1.07903)
+auto_calculate_length_and_angle = false
+length = 21.5
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Head" type="Bone2D" parent="Skeleton/Body/Neck"]
+rest = Transform2D(-1, 4.44253e-06, -4.44253e-06, -1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 43.5
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Leg_R" type="Bone2D" parent="Skeleton/Body"]
+position = Vector2(3.00004, -18)
+rotation = -0.261799
+rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, 3.00004, -18)
+auto_calculate_length_and_angle = false
+length = 60.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Foot_R" type="Bone2D" parent="Skeleton/Body/Leg_R"]
+position = Vector2(62.2654, 0.153166)
+rotation = 1.0472
+rest = Transform2D(1, 0, 0, 1, 62.2654, 0.153168)
+auto_calculate_length_and_angle = false
+length = 21.5
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Leg_L" type="Bone2D" parent="Skeleton/Body"]
+position = Vector2(191, -67)
+rotation = -0.523598
+rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 2.99995, 18)
+auto_calculate_length_and_angle = false
+length = 60.0
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Foot_L" type="Bone2D" parent="Skeleton/Body/Leg_L"]
+position = Vector2(72, -1)
+rest = Transform2D(1, 0, 0, 1, 62.0966, -0.0741673)
+auto_calculate_length_and_angle = false
+length = 21.5
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="PBody" type="PhysicalBone2D" parent="Skeleton"]
+unique_name_in_owner = true
+rotation = 1.5708
+linear_velocity = Vector2(0.244312, -0.0067174)
+angular_velocity = -0.00515499
+bone2d_nodepath = NodePath("../Body")
+bone2d_index = 0
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody"]
+position = Vector2(-45, 1.74846e-07)
+texture = SubResource("Texture2D_743ov")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody"]
+position = Vector2(-45, 1.74845e-07)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_531m3")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PNeck" type="PhysicalBone2D" parent="Skeleton/PBody"]
+position = Vector2(-90, 3.90422e-06)
+bone2d_nodepath = NodePath("../../Body/Neck")
+bone2d_index = 1
+simulate_physics = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PArm_R" type="PhysicalBone2D" parent="Skeleton/PBody/PNeck"]
+modulate = Color(0.819962, 0.665235, 0.406206, 1)
+position = Vector2(4.00001, -31)
+rotation = -0.523598
+linear_velocity = Vector2(-0.414471, 0.179799)
+angular_velocity = 0.0143915
+bone2d_nodepath = NodePath("../../../Body/Neck/Arm_R")
+bone2d_index = 2
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PNeck/PArm_R"]
+position = Vector2(32, 7.62939e-06)
+texture = SubResource("Texture2D_5gdmc")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PNeck/PArm_R"]
+position = Vector2(32.2487, 0.143637)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7qsiu")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck/PArm_R"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PHand_R" type="PhysicalBone2D" parent="Skeleton/PBody/PNeck/PArm_R"]
+position = Vector2(68.5952, -0.810984)
+linear_velocity = Vector2(-12.4066, 1.50509)
+angular_velocity = 1.02661
+bone2d_nodepath = NodePath("../../../../Body/Neck/Arm_R/Hand_R")
+bone2d_index = 3
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PNeck/PArm_R/PHand_R"]
+position = Vector2(11.2917, -0.408861)
+texture = SubResource("Texture2D_o4ik4")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PNeck/PArm_R/PHand_R"]
+position = Vector2(11.2917, -0.408855)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_da675")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck/PArm_R/PHand_R"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PArm_L" type="PhysicalBone2D" parent="Skeleton/PBody/PNeck"]
+modulate = Color(0.565984, 0.858015, 0.8491, 1)
+position = Vector2(4, 31)
+rotation = 0.523598
+linear_velocity = Vector2(-0.0168908, 0.000556631)
+angular_velocity = 0.000324162
+bone2d_nodepath = NodePath("../../../Body/Neck/Arm_L")
+bone2d_index = 4
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PNeck/PArm_L"]
+position = Vector2(32, -7.62939e-06)
+texture = SubResource("Texture2D_5gdmc")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PNeck/PArm_L"]
+position = Vector2(32.2487, -0.143476)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7qsiu")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck/PArm_L"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PHand_L" type="PhysicalBone2D" parent="Skeleton/PBody/PNeck/PArm_L"]
+position = Vector2(68.5957, 0.810905)
+linear_velocity = Vector2(-2.72047, -0.154346)
+angular_velocity = 0.239109
+bone2d_nodepath = NodePath("../../../../Body/Neck/Arm_L/Hand_L")
+bone2d_index = 5
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PNeck/PArm_L/PHand_L"]
+position = Vector2(11.2917, 0.407839)
+texture = SubResource("Texture2D_o4ik4")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PNeck/PArm_L/PHand_L"]
+position = Vector2(11.2917, 0.407841)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_da675")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck/PArm_L/PHand_L"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PHead" type="PhysicalBone2D" parent="Skeleton/PBody/PNeck"]
+position = Vector2(-24, 1.07888e-06)
+rotation = -3.14159
+freeze = true
+bone2d_nodepath = NodePath("../../../Body/Neck/Head")
+bone2d_index = 6
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PNeck/PHead"]
+rotation = 1.57079
+texture = SubResource("Texture2D_ctjku")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PNeck/PHead"]
+position = Vector2(-2, 8.97248e-06)
+shape = SubResource("CapsuleShape2D_4tb8r")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PNeck/PHead"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PLeg_R" type="PhysicalBone2D" parent="Skeleton/PBody"]
+modulate = Color(0.846996, 0.699009, 0.847373, 1)
+position = Vector2(-4, -17.9937)
+linear_velocity = Vector2(26.4029, -4.27829)
+angular_velocity = -0.814104
+bone2d_nodepath = NodePath("../../Body/Leg_R")
+bone2d_index = 7
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PLeg_R"]
+position = Vector2(34, 7.54197e-06)
+texture = SubResource("Texture2D_5gdmc")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PLeg_R"]
+position = Vector2(33.9999, 0.143628)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7qsiu")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PLeg_R"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PFoot_R" type="PhysicalBone2D" parent="Skeleton/PBody/PLeg_R"]
+position = Vector2(71.1285, 0.225506)
+linear_velocity = Vector2(51.4084, -8.38074)
+angular_velocity = -0.0710771
+bone2d_nodepath = NodePath("../../../Body/Leg_R/Foot_R")
+bone2d_index = 8
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PLeg_R/PFoot_R"]
+position = Vector2(10.8276, -0.284482)
+texture = SubResource("Texture2D_o4ik4")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PLeg_R/PFoot_R"]
+position = Vector2(10.7077, -0.353772)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_da675")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PLeg_R/PFoot_R"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PLeg_L" type="PhysicalBone2D" parent="Skeleton/PBody"]
+modulate = Color(0.528935, 0.83367, 0.618152, 1)
+position = Vector2(-3.95699, 17.739)
+linear_velocity = Vector2(15.3703, -0.731037)
+angular_velocity = -0.462473
+bone2d_nodepath = NodePath("../../Body/Leg_L")
+bone2d_index = 9
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PLeg_L"]
+position = Vector2(34, -7.71681e-06)
+texture = SubResource("Texture2D_5gdmc")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PLeg_L"]
+position = Vector2(33.9999, -0.143505)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_7qsiu")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PLeg_L"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="PFoot_L" type="PhysicalBone2D" parent="Skeleton/PBody/PLeg_L"]
+position = Vector2(70.957, -0.0112414)
+linear_velocity = Vector2(27.4189, -1.27885)
+angular_velocity = 0.164064
+bone2d_nodepath = NodePath("../../../Body/Leg_L/Foot_L")
+bone2d_index = 10
+simulate_physics = true
+
+[node name="Sprite" type="Sprite2D" parent="Skeleton/PBody/PLeg_L/PFoot_L"]
+position = Vector2(11.1673, 0.873323)
+texture = SubResource("Texture2D_o4ik4")
+
+[node name="Shape" type="CollisionShape2D" parent="Skeleton/PBody/PLeg_L/PFoot_L"]
+position = Vector2(11.0474, 0.942615)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_da675")
+debug_color = Color(0.24291, 0.65946, 0.882985, 0.470588)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Skeleton/PBody/PLeg_L/PFoot_L"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
